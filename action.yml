@@ -1,0 +1,9 @@
+name: "Status Check Action"
+description: " Github Action for checking if all the jobs passed that ran in a workflow"
+inputs:
+  token:
+    description: "Github token. Use secrets.GITHUB_TOKEN for the default token."
+    required: true
+runs:
+  using: "node16"
+  main: "dist/index.js"

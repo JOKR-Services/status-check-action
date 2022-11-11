@@ -1,0 +1,20 @@
+{
+  "name": "status-check-action",
+  "version": "0.0.1",
+  "description": "Check if all the jobs passed that ran in a workflow",
+  "main": "index.ts",
+  "scripts": {
+    "build": "ncc build index.ts --minify -o dist"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@vercel/ncc": "^0.34.0",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "@actions/core": "^1.9.1",
+    "@actions/github": "^4.0.0",
+    "@octokit/action": "^4.0.4",
+    "@octokit/rest": "^18.0.6"
+  }
+}
