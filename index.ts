@@ -22,6 +22,7 @@ async function listJobs(config: ListJobsConfig): Promise<any[]> {
 }
 
 async function main() {
+    const debug = process.env.DEBUG ?? false;
     const { runId, runNumber } = github.context;
     const repoFullName = github.context.payload.repository?.full_name?.split('/');
     if(repoFullName == undefined) return core.setFailed('Repository name could not be determined');
@@ -35,6 +36,9 @@ async function main() {
     
     const jobList = await listJobs(config);
     for (const job of jobList) {
+        if (debug) {
+            console.log(job);
+        }
         if(job.conclusion == 'failure'){
             return core.setFailed(`❌ All jobs need to pass correctly.`);
         }
